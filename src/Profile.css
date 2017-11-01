@@ -1,0 +1,23 @@
+.Profile {
+  display: flex;
+  justify-content: center;
+}
+
+.profile-info {
+  margin-left: 20px;
+  margin-top: 30px;
+  text-align: left;
+}
+
+.profile-img {
+  border: 2px solid white;
+  border-radius: 50%
+}
+
+.profile-name {
+  font-size: 28px;
+}
+
+.profile-listeners {
+  font-size: 18px;
+}
