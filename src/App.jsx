@@ -11,7 +11,8 @@ class App extends Component {
     this.state = {
       query: '',
       artist: null,
-      tracks: null
+      tracks: null,
+      userHint: 'Type name of an Artist'
     }
   }
 
@@ -25,13 +26,13 @@ class App extends Component {
     fetch(FETCH_TRACKS_URL, {method: 'GET'})
       .then(response => response.json())
       .then(json => {
-        if(this.state.artist != null) {
             const tracks = json.toptracks.track;
             //console.log('ТРЕКИ', tracks);
             this.setState({tracks});
-        }
       })
-      .catch(error => console.error(error));
+      .catch(error => this.setState({userHint: 'Wrong artist name'}));
+
+
     fetch(FETCH_ARTIST_URL, {method: 'GET'})
       .then(response => response.json())
       .then(json => {
@@ -39,7 +40,7 @@ class App extends Component {
         //console.log('АРТИСТ', artist);
         this.setState({artist});
       })
-      .catch(error => console.error(error));
+      .catch(error => console.error('Error2:   ', error));
 
 
       //console.log('at the end', this.state.artist, this.state.tracks)
@@ -73,7 +74,7 @@ class App extends Component {
                 <Gallery tracks = {this.state.tracks} />
               </div>
             </div>
-          : <div></div>
+          : <div>{this.state.userHint}</div>
         }
       </div>
     );

@@ -10,8 +10,9 @@
 }
 
 .profile-img {
+  max-height: 174px;
   border: 2px solid white;
-  border-radius: 50%
+  border-radius: 50%;
 }
 
 .profile-name {

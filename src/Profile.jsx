@@ -22,11 +22,11 @@ class Profile extends Component {
       <div className = "Profile">
       {
         artist.image[2][`#text`] !== '' &&
-          <img
-              className="profile-img"
-              src={artist.image[2][`#text`]}
-              alt={artist.name}
-          />
+              <img
+                  className = "profile-img"
+                  src={artist.image[2][`#text`]}
+                  alt={artist.name}
+              />
         }
 
         <div className = "profile-info">
