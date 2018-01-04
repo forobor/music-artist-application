@@ -12,7 +12,7 @@ class App extends Component {
       query: '',
       artist: null,
       tracks: null,
-      userHint: 'Type name of an Artist'
+      userHint: 'Enter the artist name'
     }
   }
 
@@ -27,7 +27,6 @@ class App extends Component {
       .then(response => response.json())
       .then(json => {
             const tracks = json.toptracks.track;
-            //console.log('ТРЕКИ', tracks);
             this.setState({tracks});
       })
       .catch(error => this.setState({userHint: 'Wrong artist name'}));
@@ -37,13 +36,11 @@ class App extends Component {
       .then(response => response.json())
       .then(json => {
         const artist = json.artist;
-        //console.log('АРТИСТ', artist);
         this.setState({artist});
       })
       .catch(error => console.error('Error2:   ', error));
 
 
-      //console.log('at the end', this.state.artist, this.state.tracks)
   }
 
   render() {
